@@ -1,3 +1,0 @@
-theme: jekyll-theme-cayman
-title: Chirasmayee B
-description: Data Science | NLP | Visual Analytics
