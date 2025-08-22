@@ -19,6 +19,7 @@ This visualization shows projected electricity demand of AI data centers under d
 ---
 
 ## 📬 Contact  
-- 📧 [your.email@example.com](mailto:vb@charlotte.edu)  
+- 📧 [vb@charlotte.edu](mailto:vb@charlotte.edu)  
 - 💼 [LinkedIn](https://linkedin.com/in/chirasmayee-bhavaraju-1606)  
 - 🐙 [GitHub](https://github.com/chiru-2001)  
+
