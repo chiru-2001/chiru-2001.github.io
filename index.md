@@ -1,25 +1,22 @@
-# Hi, I'm Chirasmayee 👋
-
-I’m a data science graduate student passionate about NLP, AI, and visual analytics.  
-Currently working on projects that explore the intersection of **AI and energy**.
-
+---
+layout: default
+title: About Me
 ---
 
-## 🚀 Projects
+{% include nav.html %}
 
-### Energy & AI: Electricity Consumption Scenarios  
-[View Interactive Chart](ai_electricity_consumption_scenarios.html)  
+# Hi, I'm Chiru 👋
 
-This visualization shows projected electricity demand of AI data centers under different futures:
-- **Base** → expected trajectory  
-- **Lift-Off** → rapid AI adoption  
-- **High Efficiency** → tech progress reduces energy use  
-- **Headwinds** → slower growth  
+I’m a data science grad student focused on NLP, AI, and visual analytics.  
+I like building clear, honest visuals that make “big scary numbers” feel understandable.
 
----
+- Interests: NLP, recommender systems, data viz
+- Tools: Python, Pandas, Plotly, Tableau
+- Currently: Visual Analytics project on **Energy & AI**
 
-## 📬 Contact  
+**Contact:**   
 - 📧 [vb@charlotte.edu](mailto:vb@charlotte.edu)  
 - 💼 [LinkedIn](https://linkedin.com/in/chirasmayee-bhavaraju-1606)  
 - 🐙 [GitHub](https://github.com/chiru-2001)  
+
 
