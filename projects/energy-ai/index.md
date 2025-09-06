@@ -31,8 +31,10 @@ This visualization shows projected electricity demand of AI data centers under f
 - **High Efficiency** – tech progress reduces energy use  
 - **Headwinds** – slower growth
 
-<iframe src="/projects/energy-ai/iea_energy_ai_grouped_bar_chart.html"
-        width="100%" height="640" style="border:none;"></iframe>
+<div style="width:100%; max-width:1400px; margin:0 auto;">
+  <iframe src="/projects/energy-ai/iea_energy_ai_grouped_bar_chart.html" 
+          width="100%" height="640" style="border:none;"></iframe>
+</div>
 
 # Energy & AI - Data Center Types & Metrics
 
@@ -51,8 +53,10 @@ The performance of these types of data centers is measured by three factors:
 <iframe src="/projects/energy-ai/iea_energy_ai_bubble_chart.html"
         width="100%" height="640" style="border:none;"></iframe>
 
-<iframe src="/projects/energy-ai/iea_energy_ai_dumbbell_chart.html"
-        width="100%" height="640" style="border:none;"></iframe>
+<div style="width:100%; max-width:1400px; margin:0 auto;">
+  <iframe src="/projects/energy-ai/iea_energy_ai_dumbbell_chart.html" 
+          width="100%" height="640" style="border:none;"></iframe>
+</div>
 
 # Choropleth - CO2 Per Capita
 
