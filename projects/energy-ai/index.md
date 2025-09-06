@@ -19,7 +19,7 @@ permalink: /projects/energy-ai/
 
 # Stacked Area Chart - Contribution of Different Energy Types
         
-<iframe src="/projects/energy-ai/stacked_area_energy_chart.html"
+<iframe src="/projects/energy-ai/stacked_area_energy_mix.html"
         width="100%" height="640" style="border:none;"></iframe>
 
 # Energy & AI — Electricity Consumption Scenarios
