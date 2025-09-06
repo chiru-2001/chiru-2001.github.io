@@ -8,8 +8,8 @@ permalink: /projects/
 
 # Projects
 
-## Energy & AI — Electricity Consumption Scenarios
-Short description: Interactive visualization of AI data center electricity demand under four futures  
-(Base, Lift-Off, High Efficiency, Headwinds).
+## CHARTING GLOBAL ENERGY, EMISSIONS & AI ENERGY DEMAND WITH PLOTLY
+
+Interactive visualizations like stacked area chart, bubble chart, dumbell chart and choropleth that represent electricity consumption in different cases  
 
 - 👉 [Open project page](/projects/energy-ai/)
