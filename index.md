@@ -1,7 +1,6 @@
 ---
 layout: default
 title: About Me
-permalink: /About-Me/
 ---
 
 {% include nav.html %}
@@ -18,6 +17,7 @@ I like building clear visuals that make “big scary numbers” easier to unders
 - 📧 [vb@charlotte.edu](mailto:vb@charlotte.edu)
 - 💼 [LinkedIn](https://linkedin.com/in/chirasmayee-bhavaraju-1606)  
 - 🐙 [GitHub](https://github.com/chiru-2001)
+
 
 
 
