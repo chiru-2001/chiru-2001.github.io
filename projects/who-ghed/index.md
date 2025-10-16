@@ -9,7 +9,7 @@ permalink: /projects/who-ghed/
 # 🌍 WHO Global Health Expenditure Dashboard
 
 **Live Dashboard:**  
-[View the interactive Tableau Dashboard →](https://public.tableau.com/app/profile/your-link-here)  
+[View the interactive Tableau Dashboard →](https://public.tableau.com/app/profile/venkata.sai.chirasmayee.b/viz/Project2_17591302209210/Story1)  
 *(Hosted on Tableau Public)*  
 
 ---
