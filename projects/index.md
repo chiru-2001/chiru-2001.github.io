@@ -12,4 +12,5 @@ permalink: /projects/
 
 Interactive visualizations like stacked area chart, bubble chart, dumbell chart and choropleth that represent electricity consumption in different cases  
 
-- 👉 [Open project page](/projects/energy-ai/)
+- 👉 [Open Energy & AI project page - Project 1](/projects/energy-ai/)
+- 👉 [Open WHO Analysis project page - Project 2](/projects/who-ghed/)
