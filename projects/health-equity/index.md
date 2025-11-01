@@ -28,6 +28,13 @@ p {
   margin: 0 auto 1.5rem;
   line-height: 1.7;
 }
+
+.tableauPlaceholder iframe, 
+.tableauViz iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 900px !important;  /* Adjust height */
+}
 </style>
 
 # 🩺 Redesigning Health Equity  
