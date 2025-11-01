@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>AI’s Carbon Footprint: The Energy Race We’re Not Ready For</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <!-- Plotly -->
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Palette */
+      --bg: #F7F9FC;
+      --card: #FFFFFF;
+      --ink: #1A1A1A;
+      --muted: #6B7280;
+      --grid: #E0E6ED;
+
+      --ai: #4B9EFF;
+      --fossil: #FF6B6B;
+      --gas: #FFA07A;
+      --renew: #2EB67D;
+      --nuclear: #FFD166;
+      --world: #C8D2E0;
+
+      --shadow: 0 10px 30px rgba(0,0,0,0.06);
+      --radius: 14px;
+      --maxw: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--ink); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+
+    /* Page */
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 28px 18px 48px; }
+    header.hero { text-align:center; padding: 18px 0 10px; }
+    .eyebrow { color: var(--muted); letter-spacing:.12em; text-transform:uppercase; font-weight:600; font-size:.85rem; }
+    h1 { margin: 6px 0 10px; font-size: clamp(1.6rem, 4vw, 2.1rem); line-height:1.2; font-weight:800; }
+    .subtle { color: var(--muted); margin:0 auto; max-width: 850px; }
+
+    /* KPI cards */
+    .kpis { display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0 10px; }
+    .kpi { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px; display:flex; flex-direction:column; gap:6px; min-height:110px; }
+    .kpi h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin:0; }
+    .kpi p { margin:0; color: var(--muted); font-size:.95rem; }
+    .kpi .tag { font-size:.8rem; font-weight:600; color:#3b82f6; text-transform: uppercase; letter-spacing:.08em; }
+
+    /* Section */
+    section.block { margin: 26px 0 14px; }
+    .card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px; }
+    .title-row { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom: 8px; }
+    h2 { font-size: 1.2rem; margin:0; }
+    .note { color: var(--muted); font-size: .9rem; margin: 4px 0 0; }
+
+    /* Plot containers */
+    .plot { width:100%; height: 540px; }
+    .plot.tall { height: 620px; }
+
+    /* Footer */
+    footer { text-align:center; color: var(--muted); margin-top: 26px; font-size: .9rem; }
+
+    /* Responsive */
+    @media (max-width: 1000px){
+      .kpis { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px){
+      .kpis { grid-template-columns: 1fr; }
+      .plot { height: 460px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="hero">
+      <div class="eyebrow">Project 3 · Visual Analytics</div>
+      <h1>AI’s Carbon Footprint: The Energy Race We’re Not Ready For</h1>
+      <p class="subtle">AI’s electricity demand is accelerating. The world’s energy mix is transitioning—but not fast enough. This page presents a consistent, minimal dashboard that lets the visuals do the talking.</p>
+    </header>
+
+    <!-- KPI CARDS -->
+    <div class="kpis">
+      <div class="kpi">
+        <span class="tag">AI Demand</span>
+        <h2 id="kpi-ai">—</h2>
+        <p>AI electricity use (TWh)</p>
+      </div>
+      <div class="kpi">
+        <span class="tag">Scale</span>
+        <h2 id="kpi-share">—</h2>
+        <p>Share of global electricity</p>
+      </div>
+      <div class="kpi">
+        <span class="tag">Projection</span>
+        <h2 id="kpi-growth">—</h2>
+        <p>Growth by 2030</p>
+      </div>
+      <div class="kpi">
+        <span class="tag">Intensity</span>
+        <h2 id="kpi-intensity">—</h2>
+        <p>CO₂ per kWh</p>
+      </div>
+    </div>
+
+    <!-- 1) AI vs GLOBAL ELECTRICITY -->
+    <section class="block">
+      <div class="card">
+        <div class="title-row">
+          <h2>AI vs Global Electricity Use</h2>
+          <span class="note">Context for scale · 2020–2035</span>
+        </div>
+        <div id="ai_vs_world" class="plot"></div>
+      </div>
+    </section>
+
+    <!-- 2) GLOBAL ENERGY MIX -->
+    <section class="block">
+      <div class="card">
+        <div class="title-row">
+          <h2>Global Electricity Mix</h2>
+          <span class="note">Coal · Gas · Renewables · Nuclear — 2000–2023</span>
+        </div>
+        <div id="energy_mix" class="plot tall"></div>
+      </div>
+    </section>
+
+    <!-- 3) CARBON INTENSITY -->
+    <section class="block">
+      <div class="card">
+        <div class="title-row">
+          <h2>Carbon Intensity of Electricity (gCO₂/kWh)</h2>
+          <span class="note">Lower is better — 2000–2023</span>
+        </div>
+        <div id="intensity" class="plot"></div>
+      </div>
+    </section>
+
+    <!-- 4) REGIONAL READINESS MAP -->
+    <section class="block">
+      <div class="card">
+        <div class="title-row">
+          <h2>Regional Readiness: Renewables Share (%)</h2>
+          <span class="note">Most recent year available</span>
+        </div>
+        <div id="map" class="plot tall"></div>
+      </div>
+    </section>
+
+    <!-- 5) DONUT: AI vs RENEWABLES SUPPLY -->
+    <section class="block">
+      <div class="card">
+        <div class="title-row">
+          <h2>Tradeoff Snapshot: AI Demand vs Renewable Supply</h2>
+          <span class="note">How much of renewables would AI consume?</span>
+        </div>
+        <div id="donut" class="plot"></div>
+      </div>
+    </section>
+
+    <footer>
+      Data sketch using IEA Energy & AI and OWID Energy Mix (replace placeholders with latest values).
+    </footer>
+
+  </div>
+
+  <script>
+    // =========================
+    // DATA (PLACEHOLDERS)
+    // Replace the arrays below with real series from IEA/OWID.
+    // =========================
+
+    // --- KPI values (example placeholders) ---
+    const kpi_ai_twh = 540;         // TODO: IEA AI electricity demand (TWh, 2024)
+    const kpi_share_pct = 3.4;      // TODO: AI share of global electricity (%)
+    const kpi_growth_pct = 220;     // TODO: Projected growth by 2030 (%)
+    const kpi_intensity_g = 350;    // TODO: Global average gCO2/kWh (latest)
+
+    // --- Chart 1: AI vs Global Electricity (TWh) ---
+    const yearsA = [2020, 2023, 2024, 2030, 2035];
+    const worldTwh = [27000, 28500, 29000, 32000, 35000];   // TODO: OWID total electricity
+    const aiTwh    = [  200,   300,   540,  1200,  1700];   // TODO: IEA AI demand scenarios
+
+    // --- Chart 2: Global Energy Mix (% of electricity) ---
+    const yearsM = [2000, 2005, 2010, 2015, 2020, 2023];
+    const mix_coal  = [40, 40, 39, 38, 36, 35];   // TODO: OWID shares
+    const mix_gas   = [20, 22, 23, 23, 23, 22];
+    const mix_ren   = [20, 22, 24, 27, 30, 32];
+    const mix_nuke  = [16, 15, 13, 11, 10, 9];
+
+    // --- Chart 3: Carbon Intensity (gCO2/kWh) ---
+    const yearsI = [2000, 2005, 2010, 2015, 2020, 2023];
+    const intensity_g_co2 = [520, 500, 470, 430, 380, 350]; // TODO: OWID/IEA intensity
+
+    // --- Chart 4: Map (Renewables share % by country, latest) ---
+    // Use ISO-3 codes for Plotly choropleth
+    const iso3 = ["USA","CHN","IND","DEU","FRA","BRA","ZAF","AUS","CAN","NOR"];
+    const renShare = [22, 30, 28, 46, 51, 86, 13, 35, 65, 98]; // TODO: OWID renewables % (electricity)
+    const hoverName = ["United States","China","India","Germany","France","Brazil","South Africa","Australia","Canada","Norway"];
+
+    // --- Chart 5: Donut (AI demand vs Renewables supply in TWh) ---
+    const renewables_twh = 9800;  // TODO: Global renewables electricity (TWh)
+    const ai_demand_twh  = 540;   // same as KPI/placeholder
+
+    // =========================
+    // APPLY KPI TEXT
+    // =========================
+    document.getElementById('kpi-ai').textContent = kpi_ai_twh.toLocaleString() + " TWh";
+    document.getElementById('kpi-share').textContent = kpi_share_pct + "%";
+    document.getElementById('kpi-growth').textContent = "+" + kpi_growth_pct + "%";
+    document.getElementById('kpi-intensity').textContent = kpi_intensity_g + " g";
+
+    // =========================
+    // CHART 1: AI vs Global Electricity
+    // =========================
+    const aiTrace = {
+      x: yearsA, y: aiTwh, name: "AI Data Centers",
+      type: "bar",
+      marker: { color: "#4B9EFF" },
+      hovertemplate: "AI: %{y:.0f} TWh<extra></extra>"
+    };
+    const worldTrace = {
+      x: yearsA, y: worldTwh, name: "World Electricity",
+      type: "scatter", mode: "lines+markers",
+      line: { color: "#C8D2E0", width: 4 },
+      marker: { size: 6 },
+      hovertemplate: "World: %{y:.0f} TWh<extra></extra>"
+    };
+    Plotly.newPlot("ai_vs_world", [worldTrace, aiTrace], {
+      margin: { t: 28, r: 16, b: 48, l: 56 },
+      paper_bgcolor: "white",
+      plot_bgcolor: "white",
+      font: { family: "Inter, sans-serif", color: "#1A1A1A" },
+      barmode: "group",
+      yaxis: { title: "Electricity (TWh)", gridcolor: "#E0E6ED", zeroline:false },
+      xaxis: { tickmode: "linear", dtick: 1, gridcolor: "rgba(0,0,0,0)" },
+      legend: { orientation: "h", x: 0.02, y: 1.15 }
+    }, {displayModeBar:false, responsive:true});
+
+    // =========================
+    // CHART 2: Global Energy Mix (Stacked Area)
+    // =========================
+    function areaTrace(y, name, color){
+      return {
+        x: yearsM, y, name,
+        type: "scatter", mode: "lines",
+        stackgroup: "one",
+        line: { width: 0.5, color },
+        hovertemplate: name + ": %{y:.1f}%<extra></extra>"
+      };
+    }
+    const tCoal = areaTrace(mix_coal, "Coal", "#FF6B6B");
+    const tGas  = areaTrace(mix_gas,  "Gas",  "#FFA07A");
+    const tRen  = areaTrace(mix_ren,  "Renewables", "#2EB67D");
+    const tNuk  = areaTrace(mix_nuke, "Nuclear", "#FFD166");
+
+    Plotly.newPlot("energy_mix", [tCoal, tGas, tRen, tNuk], {
+      margin: { t: 28, r: 16, b: 48, l: 56 },
+      paper_bgcolor: "white",
+      plot_bgcolor: "white",
+      font: { family: "Inter, sans-serif", color: "#1A1A1A" },
+      yaxis: { title: "Share of Electricity (%)", range: [0, 100], gridcolor: "#E0E6ED" },
+      xaxis: { tickmode: "linear", dtick: 5, gridcolor: "rgba(0,0,0,0)" },
+      legend: { orientation: "h", x: 0.02, y: 1.15 }
+    }, {displayModeBar:false, responsive:true});
+
+    // =========================
+    // CHART 3: Carbon Intensity Line
+    // =========================
+    Plotly.newPlot("intensity", [{
+      x: yearsI, y: intensity_g_co2, name: "Global Avg",
+      type: "scatter", mode: "lines+markers",
+      line: { color: "#4B9EFF", width: 4 },
+      marker: { size: 7 },
+      hovertemplate: "%{y:.0f} gCO₂/kWh<extra></extra>"
+    }], {
+      margin: { t: 28, r: 16, b: 48, l: 64 },
+      paper_bgcolor: "white",
+      plot_bgcolor: "white",
+      font: { family: "Inter, sans-serif", color: "#1A1A1A" },
+      yaxis: { title: "gCO₂ per kWh", gridcolor: "#E0E6ED" },
+      xaxis: { tickmode: "linear", dtick: 5, gridcolor: "rgba(0,0,0,0)" },
+      legend: { orientation: "h", x: 0.02, y: 1.12 }
+    }, {displayModeBar:false, responsive:true});
+
+    // =========================
+    // CHART 4: Choropleth — Renewables Share (%)
+    // =========================
+    Plotly.newPlot("map", [{
+      type: "choropleth",
+      locationmode: "ISO-3",
+      locations: iso3,
+      z: renShare,
+      text: hoverName,
+      colorscale: [
+        [0, "#FF6B6B"], [0.25, "#FFA07A"],
+        [0.5, "#FFD166"], [0.75, "#7AD6A7"], [1, "#2EB67D"]
+      ],
+      colorbar: { title: "Renewables %" },
+      hovertemplate: "%{text}<br>Renewables: %{z:.0f}%<extra></extra>",
+      marker: { line: { color: "#fff", width: 0.5 } }
+    }], {
+      margin: { t: 10, r: 0, b: 0, l: 0 },
+      geo: {
+        showframe: false, showcoastlines: false, projection: { type: "natural earth" },
+        bgcolor: "white"
+      },
+      paper_bgcolor: "white",
+    }, {displayModeBar:false, responsive:true});
+
+    // =========================
+    // CHART 5: Donut — AI vs Renewables
+    // =========================
+    const donutVals = [ai_demand_twh, Math.max(renewables_twh - ai_demand_twh, 0)];
+    const donutLabels = ["AI Demand", "Remaining Renewables"];
+    const donutColors = ["#4B9EFF", "#2EB67D"];
+    Plotly.newPlot("donut", [{
+      type: "pie", values: donutVals, labels: donutLabels,
+      hole: 0.55,
+      marker: { colors: donutColors },
+      textinfo: "label+percent", sort:false,
+      hovertemplate: "%{label}: %{value:.0f} TWh<extra></extra>"
+    }], {
+      margin: { t: 10, r: 10, b: 10, l: 10 },
+      paper_bgcolor: "white",
+      showlegend: false
+    }, {displayModeBar:false, responsive:true});
+  </script>
+</body>
+</html>
