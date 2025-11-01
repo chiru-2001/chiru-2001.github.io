@@ -7,86 +7,115 @@ permalink: /projects/health-equity/
 {% include nav.html %}
 
 <style>
-/* Fix top cut-off on Cayman layout */
-body {
-  padding-top: 60px; /* Adjust to match your nav height */
-}
-
-/* Optional: prevent it from doubling on small screens */
-@media (max-width: 768px) {
-  body {
-    padding-top: 80px;
+  /* ===== Layout knobs you can tweak ===== */
+  :root{
+    --navH: 64px;          /* your nav height */
+    --vizW: 1800px;        /* width of each full-screen panel */
+    --bg: #ffffff;
   }
-}
 
-h1, h2 {
-  text-align: center;
-  color: #1a2a6c;
-}
-p {
-  max-width: 900px;
-  margin: 0 auto 1.5rem;
-  line-height: 1.7;
-}
+  /* Make the whole page horizontally scrollable */
+  html, body {
+    margin: 0; padding: 0;
+    overflow-x: auto;          /* enable horizontal scroll */
+    background: #f6f8fa;
+  }
+
+  /* Optional: hide the nav in true browser fullscreen */
+  body:fullscreen nav, body:-webkit-full-screen nav { display: none !important; }
+
+  /* A horizontal scroller that holds all panels side-by-side */
+  .hscroll {
+    display: flex;
+    gap: 24px;
+    padding: 16px 24px 40px;
+    width: max-content;        /* expand to fit children */
+  }
+
+  /* Each panel = one full-screen “slide” */
+  .panel {
+    background: var(--bg);
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    width: var(--vizW);                     /* super wide */
+    height: calc(100vh - var(--navH) - 40px);
+    padding: 12px 12px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .panel h2, .panel p.caption {
+    margin: 8px 12px;
+  }
+
+  .viz-wrap {
+    position: relative;
+    flex: 1 1 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .viz-wrap iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+
+  /* Center the page title and keep normal vertical flow above the scroller */
+  .page-intro { max-width: 900px; margin: 0 auto 12px; text-align: center; }
 </style>
 
-# 🩺 Redesigning Health Equity  
-*How income shapes access to healthcare.*
+<!-- Optional: keep your nav include as-is -->
 
-This project redesigns a subset of the **WHO Global Health Expenditure** dataset to explore how **income levels influence access and affordability of care**.  
-Each design choice — color, spacing, typography — was guided by principles of perception, clarity, and emotional resonance.  
-The goal: reveal inequality without clutter or distraction.
+{% include nav.html %}
 
----
 
-## 1️⃣ Who Can Afford Care?
-<div style="width:100%; max-width:1600px; margin:2rem auto;">
-  <iframe
-    src="https://public.tableau.com/views/Project2_17591302209210/Dashboard1?:showVizHome=no&:embed=true"
-    width="100%"
-    height="950"
-    style="border:none; display:block; margin:0 auto;">
-  </iframe>
+<div class="page-intro">
+  <h1>🩺 Redesigning Health Equity — WHO Global Health Expenditure</h1>
+  <p>Scroll <b>horizontally</b> to view each full-screen panel.</p>
 </div>
 
-High-income nations spend, on average, **10× more per person** on health than low-income countries.  
-While all regions show gradual growth from 2000 to 2022, the gap remains — reflecting that global health inequality is a **structural**, not a temporary, issue.  
-This dashboard allows viewers to filter by **region** and **year**, making trends transparent and personal.
+<div class="hscroll">
+  <!-- Panel 1 -->
+  <section class="panel">
+    <h2>1️⃣ Who Can Afford Care</h2>
+    <p class="caption">CHE per capita by income group, 2000–2022. Use filters in the viz.</p>
+    <div class="viz-wrap">
+      <iframe
+        src="https://public.tableau.com/views/Project2_17591302209210/Dashboard1?:showVizHome=no&:embed=true"
+        loading="lazy"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
 
----
+  <!-- Panel 2 -->
+  <section class="panel">
+    <h2>2️⃣ Who Pays for Care?</h2>
+    <p class="caption">Goverment Spending and Out Of Pocket</p>
+    <div class="viz-wrap">
+      <iframe
+        src="https://public.tableau.com/views/Project2_17591302209210/Dashboard4?:showVizHome=no&:embed=true"
+        loading="lazy"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
 
-## 2️⃣ Who Pays for Care?
-
-<div style="width:100%; max-width:1600px; margin:2rem auto;">
-  <iframe
-    src="https://public.tableau.com/views/Project2_17591302209210/Dashboard4?:showVizHome=no&:embed=true"
-    width="100%"
-    height="950"
-    style="border:none; display:block; margin:0 auto;">
-  </iframe>
+  <!-- Panel 3 -->
+  <section class="panel">
+    <h2>3️⃣ The Care Gap</h2>
+    <p class="caption">Country distribution of CHE per capita (2022), grouped by income.</p>
+    <div class="viz-wrap">
+      <iframe
+        src="https://public.tableau.com/views/Project2_17591302209210/Dashboard3?:showVizHome=no&:embed=true"
+        loading="lazy"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
 </div>
-
-In high-income countries, most healthcare spending is **publicly funded** through government and insurance programs.  
-By contrast, in low-income nations, the burden falls on individuals: **out-of-pocket payments** dominate, often pushing families into poverty.  
-This visualization highlights how **financing structures mirror income class** — equity begins with who pays the bill.
-
----
-
-## 3️⃣ The Care Gap
-
-<div style="width:100%; max-width:1600px; margin:2rem auto;">
-  <iframe
-    src="https://public.tableau.com/views/Project2_17591302209210/Dashboard3?:showVizHome=no&:embed=true"
-    width="100%"
-    height="950"
-    style="border:none; display:block; margin:0 auto;">
-  </iframe>
-</div>
-
-Each dot represents a country in 2022.  
-The clustering by income group reveals that **wealthier nations consistently spend more per capita**, while low-income countries remain tightly grouped at the bottom of the scale.  
-The empty space between clusters visually captures **the care gap** — an absence measured in dollars, but felt in lives.
-
 ---
 
 ## ✳️ Design Principles Applied
