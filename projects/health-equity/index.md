@@ -28,13 +28,6 @@ p {
   margin: 0 auto 1.5rem;
   line-height: 1.7;
 }
-
-.tableauPlaceholder iframe, 
-.tableauViz iframe {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: 900px !important;  /* Adjust height */
-}
 </style>
 
 # 🩺 Redesigning Health Equity  
@@ -47,30 +40,13 @@ The goal: reveal inequality without clutter or distraction.
 ---
 
 ## 1️⃣ Who Can Afford Care?
-
-
-<div style="
-  position: relative;
-  padding-bottom: 75%;
-  height: 0;
-  overflow: hidden;
-  max-width: 1800px;
-  margin: 2rem auto;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.08);
-">
+<div style="width:100%; max-width:1600px; margin:2rem auto;">
   <iframe
     src="https://public.tableau.com/views/Project2_17591302209210/Dashboard1?:showVizHome=no&:embed=true"
-    style="
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
-      border-radius: 12px;
-    "
-    allowfullscreen
-  ></iframe>
+    width="100%"
+    height="950"
+    style="border:none; display:block; margin:0 auto;">
+  </iframe>
 </div>
 
 High-income nations spend, on average, **10× more per person** on health than low-income countries.  
@@ -81,28 +57,13 @@ This dashboard allows viewers to filter by **region** and **year**, making trend
 
 ## 2️⃣ Who Pays for Care?
 
-<div style="
-  position: relative;
-  padding-bottom: 75%;
-  height: 0;
-  overflow: hidden;
-  max-width: 1800px;
-  margin: 2rem auto;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.08);
-">
+<div style="width:100%; max-width:1600px; margin:2rem auto;">
   <iframe
     src="https://public.tableau.com/views/Project2_17591302209210/Dashboard4?:showVizHome=no&:embed=true"
-    style="
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
-      border-radius: 12px;
-    "
-    allowfullscreen
-  ></iframe>
+    width="100%"
+    height="950"
+    style="border:none; display:block; margin:0 auto;">
+  </iframe>
 </div>
 
 In high-income countries, most healthcare spending is **publicly funded** through government and insurance programs.  
@@ -113,28 +74,13 @@ This visualization highlights how **financing structures mirror income class** �
 
 ## 3️⃣ The Care Gap
 
-<div style="
-  position: relative;
-  padding-bottom: 75%;
-  height: 0;
-  overflow: hidden;
-  max-width: 1800px;
-  margin: 2rem auto;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.08);
-">
+<div style="width:100%; max-width:1600px; margin:2rem auto;">
   <iframe
     src="https://public.tableau.com/views/Project2_17591302209210/Dashboard3?:showVizHome=no&:embed=true"
-    style="
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
-      border-radius: 12px;
-    "
-    allowfullscreen
-  ></iframe>
+    width="100%"
+    height="950"
+    style="border:none; display:block; margin:0 auto;">
+  </iframe>
 </div>
 
 Each dot represents a country in 2022.  
