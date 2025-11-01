@@ -15,10 +15,10 @@ The goal: reveal inequality without clutter or distraction.
 
 ---
 
-## 1️⃣ Who Can Afford Care?
+## Who Can Afford Care?
 
 <iframe src="https://public.tableau.com/views/Project2_17591302209210/Dashboard1?:showVizHome=no&:embed=true"
-        width="100%" height="900" style="border:none;"></iframe>
+        width="200%" height="900" style="border:none;"></iframe>
 
 High-income nations spend, on average, **10× more per person** on health than low-income countries.  
 While all regions show gradual growth from 2000 to 2022, the gap remains — reflecting that global health inequality is a **structural**, not a temporary, issue.  
@@ -26,10 +26,10 @@ This dashboard allows viewers to filter by **region** and **year**, making trend
 
 ---
 
-## 2️⃣ Who Pays for Care?
+## Who Pays for Care?
 
 <iframe src="https://public.tableau.com/views/Project2_17591302209210/Dashboard4?:showVizHome=no&:embed=true"
-        width="100%" height="900" style="border:none;"></iframe>
+        width="200%" height="900" style="border:none;"></iframe>
 
 In high-income countries, most healthcare spending is **publicly funded** through government and insurance programs.  
 By contrast, in low-income nations, the burden falls on individuals: **out-of-pocket payments** dominate, often pushing families into poverty.  
@@ -37,10 +37,10 @@ This visualization highlights how **financing structures mirror income class** �
 
 ---
 
-## 3️⃣ The Care Gap
+## The Care Gap
 
 <iframe src="https://public.tableau.com/views/Project2_17591302209210/Dashboard3?:showVizHome=no&:embed=true"
-        width="100%" height="900" style="border:none;"></iframe>
+        width="200%" height="900" style="border:none;"></iframe>
 
 Each dot represents a country in 2022.  
 The clustering by income group reveals that **wealthier nations consistently spend more per capita**, while low-income countries remain tightly grouped at the bottom of the scale.  
@@ -48,7 +48,7 @@ The empty space between clusters visually captures **the care gap** — an absen
 
 ---
 
-## ✳️ Design Principles Applied
+## Design Principles Applied
 
 **Gestalt Principles** — Alignment, proximity, and color similarity unify the dashboards into one story.  
 **Pre-attentive Attributes** — Size and hue highlight high-income vs low-income differences instantly.  
@@ -58,7 +58,7 @@ The empty space between clusters visually captures **the care gap** — an absen
 
 ---
 
-## 🎯 Key Takeaways
+## Key Takeaways
 
 - **Wealth shapes health:** Income remains the strongest predictor of healthcare access.  
 - **Public funding matters:** Countries investing through government spending reduce household risk.  
@@ -66,6 +66,6 @@ The empty space between clusters visually captures **the care gap** — an absen
 
 ---
 
-## 🔗 Explore the Full Interactive Dashboard
-👉 [View on Tableau Public →]([https://public.tableau.com/views/GlobalHealthDashboard/Overview](https://public.tableau.com/views/Project2_17591302209210/Story1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link))
+## Explore the Full Interactive Dashboard
+[View on Tableau Public →]([https://public.tableau.com/views/GlobalHealthDashboard/Overview](https://public.tableau.com/views/Project2_17591302209210/Story1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link))
 
