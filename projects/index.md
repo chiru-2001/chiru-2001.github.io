@@ -14,4 +14,4 @@ Interactive visualizations like stacked area chart, bubble chart, dumbell chart 
 
 - 👉 [Open Energy & AI project page - Project 1](/projects/energy-ai/)
 - 👉 [Open WHO Analysis project page - Project 2](/projects/who-ghed/)
-- 👉 [Open WHO Analysis project page - Project 2](/projects/health-equity/)
+- 👉 [Open WHO Analysis project page - Project 3](/projects/health-equity/)
