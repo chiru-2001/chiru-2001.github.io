@@ -54,7 +54,7 @@ The goal: reveal inequality without clutter or distraction.
   padding-bottom: 75%;
   height: 0;
   overflow: hidden;
-  max-width: 1400px;
+  max-width: 1800px;
   margin: 2rem auto;
   background: #ffffff;
   border-radius: 12px;
@@ -86,7 +86,7 @@ This dashboard allows viewers to filter by **region** and **year**, making trend
   padding-bottom: 75%;
   height: 0;
   overflow: hidden;
-  max-width: 1400px;
+  max-width: 1800px;
   margin: 2rem auto;
   background: #ffffff;
   border-radius: 12px;
@@ -118,7 +118,7 @@ This visualization highlights how **financing structures mirror income class** â
   padding-bottom: 75%;
   height: 0;
   overflow: hidden;
-  max-width: 1400px;
+  max-width: 1800px;
   margin: 2rem auto;
   background: #ffffff;
   border-radius: 12px;
